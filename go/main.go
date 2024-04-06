@@ -50,7 +50,7 @@ func renderGrid(grid *Grid) {
 	}
 }
 
-func calculateNbor(row int, col int, currentCell int, grid *Grid) int {
+func calculateNbor(row int, col int, grid *Grid) int {
 	var aliveCells int = 0
 
 	numRows := len(grid)
@@ -72,8 +72,9 @@ func calculateNbor(row int, col int, currentCell int, grid *Grid) int {
 	return aliveCells
 }
 
-func isCellDeadOrAlive(row int, col int, currentCell int, grid *Grid) int {
-	aliveCells := calculateNbor(row, col, currentCell, grid)
+func isCellDeadOrAlive(row int, col int, grid *Grid) int {
+	currentCell := grid[row][col]
+	aliveCells := calculateNbor(row, col, grid)
 
 	switch currentCell {
 	case LIVE:
@@ -103,7 +104,7 @@ func generateNextGeneration(grid *Grid) *Grid {
 
 	for row := 0; row < len(grid); row++ {
 		for col := 0; col < len(grid[row]); col++ {
-			nextGen[row][col] = isCellDeadOrAlive(row, col, grid[row][col], grid)
+			nextGen[row][col] = isCellDeadOrAlive(row, col, grid)
 		}
 	}
 
