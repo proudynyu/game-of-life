@@ -1,16 +1,14 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-:root {
-    --black: #000000;
-    --gray: #0f0f0f;
+html {
+    background: rgb(10, 10, 10);
 }
 
 body {
-    background: var(--black);
     width: 100%;
     height: 100dvh;
     display: flex;
@@ -19,5 +17,5 @@ body {
 }
 
 #root {
-    background: var(--gray);
+    background: rgb(50, 50, 50);
 }
