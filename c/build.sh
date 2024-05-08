@@ -1,5 +1,13 @@
 #!/bin/bash
 
-gcc -I./raylib/include -o game_of_life main.c -L./raylib/lib -l:libraylib.a -lm
+DIRECTORY=bin
+FILENAME=game_of_life
 
-./game_of_life
+if [ ! -d "$DIRECTORY" ]; then
+    mkdir bin
+fi
+
+gcc -I./raylib/include -o $DIRECTORY/$FILENAME main.c -L./raylib/lib -l:libraylib.a -lm
+
+cd $DIRECTORY/
+./$FILENAME
